@@ -11,7 +11,7 @@ This is a personal blog for users to create content to share with other users. U
     1. The article can be saved, up-voted, commented on. Users Only 
 ## ERD & WIREFRAMES
 !['ERD'](misc/ERD.png)
-!['Wireframe'](misc/Wireframe.png)
+!['Wireframe'](misc/Wireframe.png) 
 
 ## ROUTES
 ### BACKEND ROUTES
