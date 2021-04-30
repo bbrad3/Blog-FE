@@ -54,5 +54,37 @@ This is a personal blog for users to create content to share with other users. U
     - CommentCard
 
 ## MVP
+- [] User Auth
+    - [x] Login
+    - [x] Signup
+    - [x] Logout
+    - [] Edit user info (Owner only)
+    - [] Delete user (Owner only)
+    - [] Encrypted id
+        - [x] saved to localStorage
+        - [] saved to global state
+    - [] Hashed passwords
+- [] Articles
+    - [x] Get all
+        - [] Get articles filtered by tags
+    - [x] Get one
+    - [] Create article (User only)
+    - [] Edit article (Owner only)
+    - [] Delete article (Owner only)
+    - [] Articles can be saved
+    - [] Articles can be up-voted
+- [] Comments
+    - [] Create comment on article (Users only)
+        - [] Comment belongs to one user and one article
+    - [] Remove comment on article (User & Owner only)
+- [] Tags
+    - [] Seed default tags
+    - [] Add to articles
+    - [] Remove from articles
+    - [] Add to comments
+    - [] Remove from comments
 
 ## STRETCH
+- [] Add user img column
+- [] Add article img column
+- [] Animations using react-spring
