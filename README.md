@@ -76,14 +76,12 @@ This is a personal blog for users to create content to share with other users. U
         - [x] (Owner only)
     - [x] Delete article 
         - [x] (Owner only)
-    - [] Articles can be saved
-    - [] Articles can be up-voted
 - [] Comments
     - [x] Create comment on article 
         - [x] (Users only)
         - [x] Comment belongs to one user and one article
-    - [] Remove comment on article 
-        -[] (User & Owner only)
+    - [x] Remove comment on article 
+        -[] (Article or Comment Owner only)
 - [] Tags
     - [] Seed default tags
     - [] Add to articles
@@ -92,6 +90,8 @@ This is a personal blog for users to create content to share with other users. U
     - [] Remove from comments
 
 ## STRETCH
+- [] Articles can be saved
+- [] Articles can be up-voted
 - [] Add user img column
 - [] Add article img column
 - [] Animations using react-spring
