@@ -50,7 +50,7 @@ function ShowArticle() {
                     article={article}
                     style={showCardStyles}
                 />
-                <CommentCard />
+                <CommentCard article={article} />
             </div>
         </div>
     )
