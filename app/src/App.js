@@ -57,9 +57,13 @@ function App() {
       </Route>
 
       <Route exact path="/articles/:articleId/update">
-        <ShowForm
+        {user.id ?
+          <ShowForm
           type="article edit"
-        />
+          />
+        :
+          <Redirect to="/login" />
+        }
       </Route>
 
       <Route exact path="/articles/:articleId">

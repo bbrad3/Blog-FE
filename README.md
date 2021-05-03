@@ -59,9 +59,9 @@ This is a personal blog for users to create content to share with other users. U
     - [x] Signup
     - [x] Logout
     - [x] Edit user info 
-        -[] (Owner only)
+        -[x] (Owner only)
     - [x] Delete user 
-        -[] (Owner only)
+        -[x] (Owner only)
     - [x] Encrypted id
         - [x] saved to localStorage
         - [x] saved to global state
@@ -71,17 +71,17 @@ This is a personal blog for users to create content to share with other users. U
         - [] Get articles filtered by tags
     - [x] Get one
     - [x] Create article 
-        - [] (User only)
+        - [x] (User only)
     - [x] Edit article 
-        - [] (Owner only)
+        - [x] (Owner only)
     - [x] Delete article 
-        - [] (Owner only)
+        - [x] (Owner only)
     - [] Articles can be saved
     - [] Articles can be up-voted
 - [] Comments
-    - [] Create comment on article 
-        - [] (Users only)
-        - [] Comment belongs to one user and one article
+    - [x] Create comment on article 
+        - [x] (Users only)
+        - [x] Comment belongs to one user and one article
     - [] Remove comment on article 
         -[] (User & Owner only)
 - [] Tags

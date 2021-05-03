@@ -1,23 +1,27 @@
 import '../styles/CommentCard.css'
 import CommentForm from './CommentForm'
-import { useState, useEffect } from 'react'
+import { Global } from '../contexts/Global'
+import { useState, useEffect, useContext } from 'react'
 
 function CommentCard(props) {
+    const { userState } = useContext(Global)
+    const [user, setUser] = userState
     const [comments, setComments] = useState([])
 
-    const displayComments = () => {
-        console.log(props.article.comments);
+    useEffect(() => {
+        // console.log(props.article.comments);
         setComments(props.article.comments)
-    }
-    useEffect(displayComments, [])
+    }, [props])
 
     return (
         <div className="commentCard">
-            <CommentForm
-                article={props.article}
-                comments={comments}
-                setComments={setComments}
-            />
+            {user.id &&
+                <CommentForm
+                    article={props.article}
+                    comments={comments}
+                    setComments={setComments}
+                />
+            }
 
             <div className="commentsContainer">
                 {/* fill in with comments for current article */}
@@ -25,8 +29,8 @@ function CommentCard(props) {
                     return (
                         <div key={comment.id}>
                             <p className="commentContent">{comment.content}</p>
-                            <span className="commentUser">{comment.userId}</span>
                             {/* <span>{comment.tags}</span> */}
+                            <span className="commentUser">{comment.user.alias}</span>
                         </div>
                     )
                 })}

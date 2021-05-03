@@ -1,3 +1,4 @@
+import '../styles/ArticleCard.css'
 import { Global } from '../contexts/Global'
 import { useContext, useState } from 'react'
 import { Redirect } from 'react-router-dom'
@@ -14,11 +15,13 @@ function ArticleCard(props) {
 
     return (
         <div
-            className="articleCard"
-            style={props.style}
+            className={props.style === "card" ?
+            "articleCard" : "articleShowCard"}
             onClick={handleRedirect}
         >
-            <div className="articleContainer">
+            <div 
+                className={props.style === "card" ?
+                "articleContainer" : "articleShowContainer"}>
                 <h2>{props.article.title}</h2>
                 <p>{props.article.content}</p>
             </div>

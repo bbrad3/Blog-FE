@@ -6,8 +6,24 @@
     padding: 20px;
     margin-top: 50px;
 }
-
-.articleCard p {
-    height: 70%;
+.articleContainer {
+    width: 90%;
+    height: 97%;
+    margin: 0 auto;
     overflow-y: hidden;
+}
+.articleContainer p {
+    text-indent: 2rem;
+}
+
+.articleShowCard {
+    height: 60vh;
+    line-height: 1.4rem;
+    overflow-y: scroll;
+}
+.articleShowCard h2 {
+    text-align: center;
+}
+.articleShowCard p {
+    text-indent: 2rem;
 }

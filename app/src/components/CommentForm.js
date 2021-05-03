@@ -22,7 +22,7 @@ function CommentForm(props) {
             .then(res => {
                 console.log('new comment res', res);
                 setCommentInput('')
-                props.setComments([...props.comments, res.data.comment])
+                props.setComments([res.data.comment, ...props.comments])
             })
             .catch(error => {
                 console.error(error);

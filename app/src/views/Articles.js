@@ -1,5 +1,5 @@
 import '../styles/Articles.css'
-import cardStyles from '../styles/ArticleCard.css'
+import '../styles/ArticleCard.css'
 import axios from 'axios'
 import { Global } from '../contexts/Global'
 import { useContext, useState, useEffect } from 'react'
@@ -37,7 +37,7 @@ function Articles() {
                 {articles.map(article => {
                     return (
                         <ArticleCard
-                            style={cardStyles}
+                            style="card"
                             key={article.id}
                             article={article}
                             setRedirect={setRedirect}

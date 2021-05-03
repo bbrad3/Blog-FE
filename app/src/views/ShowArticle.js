@@ -1,5 +1,4 @@
 import '../styles/ShowArticle.css'
-import showCardStyles from '../styles/ArticleShowCard.css'
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { Global } from '../contexts/Global'
@@ -11,6 +10,7 @@ import ArticleCard from '../components/ArticleCard'
 function ShowArticle() {
     const { userState } = useContext(Global)
     const [user, setUser] = userState
+    const [isOwner, setIsOwner] = useState(false)
     const { articleId } = useParams()
     const [article, setArticle] = useState({})
     const [redirect, setRedirect] = useState('')
@@ -30,6 +30,24 @@ function ShowArticle() {
     }
     useEffect(fetchArticle, [])
 
+    const checkOwner = () => {
+        axios.post(`${process.env.REACT_APP_BACKEND}/users/authorize`, {
+            articleId: articleId
+        }, {
+            headers: {
+                Authorization: user.id
+            }
+        })
+            .then(res => {
+                console.log('checkOwner res', res)
+                setIsOwner(res.data.isOwner)
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+    useEffect(checkOwner, [])
+
     return (
         <div className="view showArticle">
 
@@ -37,7 +55,7 @@ function ShowArticle() {
 
             <SideBar />
             <div className="main">
-                {/* {props.article.userId === user.id &&  */}
+                {isOwner && 
                     <span className="spanBtn editBtn"
                         onClick={() => {
                             setRedirect(article.id)
@@ -45,10 +63,10 @@ function ShowArticle() {
                     >
                         Edit Article
                     </span>
-                {/* } */}
+                }
                 <ArticleCard 
                     article={article}
-                    style={showCardStyles}
+                    style="show"
                 />
                 <CommentCard article={article} />
             </div>
