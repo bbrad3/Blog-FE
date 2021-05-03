@@ -1,5 +1,5 @@
 import burger from '../styles/burger.png'
-import '../styles/NavBar.module.css'
+import '../styles/NavBar.css'
 import { Global } from '../contexts/Global'
 import { useContext, useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'

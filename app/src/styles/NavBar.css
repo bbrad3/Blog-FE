@@ -1,0 +1,48 @@
+.navBar {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .navDropDown {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+  }
+  .navBurger {
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .navBurger img {
+    height: 100%;
+    object-fit: contain;
+  }
+  .dropDownContent {
+    background-color: rgba(0, 0, 0, 0.77);
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+  }
+  .navDropDown:hover .dropDownContent {
+    opacity: 1;
+  }
+  .navBar a, span {
+    display: block;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 24px;
+    transition: all 180ms ease-in-out;
+  }
+  .navBar a:hover, span:hover {
+    color: rgb(0, 154, 196);
+  }

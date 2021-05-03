@@ -1,0 +1,12 @@
+.articles {
+  display: flex;
+  align-items: flex-start;
+}
+
+.articlesContainer {
+  width: 85%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+  

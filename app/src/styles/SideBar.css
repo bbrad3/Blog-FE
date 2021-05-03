@@ -1,0 +1,8 @@
+.sideBar {
+    background-color: #6A8D92;
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 15%;
+    height: 100vh;
+    padding: 20px 10px;
+    text-align: center;
+}

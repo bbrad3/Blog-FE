@@ -1,0 +1,6 @@
+.commentCard {
+    border-radius: 20px;
+    box-shadow: inset 0px -3px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    min-height: 30vh;
+  }

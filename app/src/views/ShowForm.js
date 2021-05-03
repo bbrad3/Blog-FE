@@ -1,17 +1,32 @@
-import UserForm from '../comoponents/UserForm'
-// import ArticleForm from '../comoponents/ArticleForm'
+import '../styles/ShowForm.css'
+import { useHistory } from 'react-router-dom'
+import UserForm from '../components/UserForm'
+import ArticleForm from '../components/ArticleForm'
 // import CommentForm from '../comoponents/CommentForm'
 
-const types = ["signup", "login"]
+const userTypes = ["signup", "login", "user edit"]
+const articleTypes = ["article new", "article edit"]
 
 function ShowForm(props) {
+    const history = useHistory()
+
     return (
         <div className="view showForm">
-            { types.includes(props.type) &&
+            <span className="spanBtn backBtn" onClick={() => history.goBack()}>
+                Back
+            </span>
+
+            { userTypes.includes(props.type) &&
                 <UserForm
                     type={props.type}
                 />
             }
+            { articleTypes.includes(props.type) &&
+                <ArticleForm
+                    type={props.type}
+                />
+            }
+
         </div>
     )
 }
