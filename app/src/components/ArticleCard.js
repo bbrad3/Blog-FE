@@ -23,6 +23,7 @@ function ArticleCard(props) {
                 className={props.style === "card" ?
                 "articleContainer" : "articleShowContainer"}>
                 <h2>{props.article.title}</h2>
+                <span className="ownerSpan">{props.article.user.alias}</span>
                 <p>{props.article.content}</p>
             </div>
         </div> 
