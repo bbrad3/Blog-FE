@@ -1,0 +1,30 @@
+.home {
+    background-image: url('./patrick-tomasso-Oaqk7qqNh_c-unsplash.jpeg');
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.home main {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    color: rgb(103, 147, 154);
+    font-size: 2rem;
+    text-shadow: 0px 2px 3px rgb(0, 0, 0);
+    margin-top: 10%;
+}
+.home main p {
+    color: white;
+    font-size: 1.2rem;
+}
+.home main p a {
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: underline;
+    transition: all 200ms ease-in-out;
+}
+.home main p a:hover {
+    color: rgb(103, 147, 154);
+    text-decoration:none;
+}

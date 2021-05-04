@@ -46,6 +46,7 @@ function ArticleForm(props) {
                     .then(res => {
                         console.log('new article res', res);
                         handleResponse(res)
+                        setRedirect(res.data.id)
                     })
                     .catch(error => {
                         console.error(error);
@@ -60,6 +61,7 @@ function ArticleForm(props) {
                     .then(res => {
                         console.log('edit article res', res);
                         handleResponse(res)
+                        setRedirect('')
                     })
                     .catch(error => {
                         console.error(error);
@@ -80,7 +82,7 @@ function ArticleForm(props) {
                 .then(res => {
                     console.log('delete article res', res);
                     // handleResponse(res)
-                    setRedirect(true)
+                    setRedirect('')
                 })
                 .catch(error => {
                     console.error(error);
@@ -88,7 +90,7 @@ function ArticleForm(props) {
         }
     }
 
-    useEffect(() => { // where to get the info from?
+    useEffect(() => {
         if (props.type === "article edit") {
             // fetch article using params
             console.log('fetching article...');
@@ -111,8 +113,8 @@ function ArticleForm(props) {
     return (
         <form className="articleForm" onSubmit={handleSubmit}>
 
-            {redirect === true && <Redirect to="/articles" />}
-            {redirect === String && <Redirect to={`/articles/${redirect}`} />}
+            {/* {redirect === 'all' && <Redirect to="/articles" />} */}
+            {!redirect && <Redirect to={`/articles/${redirect}`} />}
 
             <h2>
                 {props.type}
