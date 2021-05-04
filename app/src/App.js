@@ -14,7 +14,10 @@ function App() {
   const { userState, fetchUser } = useContext(Global)
   const [user, setUser] = userState
 
-  useEffect(fetchUser, [])
+  let local = localStorage.getItem('userId')
+  useEffect(() => {
+    if (local) {fetchUser()}
+  }, [])
 
   return (
     <div className="App">
@@ -44,11 +47,7 @@ function App() {
         <ShowForm type="user edit" />
       </Route>
 
-      <Route exact path="/articles">
-        <Articles />
-      </Route>
-
-      <Route exact path="/articles/new">
+      <Route path="/articles/new">
         {user.id ?
           <ShowForm type="article new" />
         :
@@ -56,10 +55,14 @@ function App() {
         }
       </Route>
 
+      <Route exact path="/articles">
+        <Articles />
+      </Route>
+
       <Route exact path="/articles/:articleId/update">
         {user.id ?
           <ShowForm
-          type="article edit"
+            type="article edit"
           />
         :
           <Redirect to="/login" />

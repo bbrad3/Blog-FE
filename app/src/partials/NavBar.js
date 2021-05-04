@@ -25,7 +25,7 @@ function NavBar() {
             <Link to="/">Brand</Link>
 
             <span className="navDropDown">
-                <span className="navBurger"><img src={burger}></img>
+                <span className="navBurger"><img alt="Burger button" src={burger}></img>
                 </span>
                 <span className="dropDownContent">
                     <Link to="/articles">Articles</Link>

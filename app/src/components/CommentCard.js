@@ -32,7 +32,7 @@ function CommentCard(props) {
     useEffect(() => {
         // console.log(props.article.comments);
         setComments(props.article.comments)
-    }, [props])
+    }, [])
 
     // const checkOwner = (id) => { // creating an infinite loop
     //     axios.post(`${process.env.REACT_APP_BACKEND}/users/authorize`, {

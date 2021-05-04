@@ -3,12 +3,13 @@ import '../styles/ArticleCard.css'
 import axios from 'axios'
 import { Global } from '../contexts/Global'
 import { useContext, useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, useLocation } from 'react-router-dom'
 import ArticleCard from '../components/ArticleCard'
 import SideBar from '../partials/SideBar'
 
 function Articles() {
     const { userState } = useContext(Global)
+    const location = useLocation()
     const [user, setUser] = userState
     const [articles, setArticles] = useState([])
     const [redirect, setRedirect] = useState('')
@@ -25,7 +26,7 @@ function Articles() {
                 console.error(error);
             })
     }
-    useEffect(fetchArticles, [])
+    useEffect(fetchArticles, [location])
  
     return (
         <div className="view articles">
@@ -37,8 +38,8 @@ function Articles() {
                 {articles.map(article => {
                     return (
                         <ArticleCard
-                            style="card"
                             key={article.id}
+                            type="card"
                             article={article}
                             setRedirect={setRedirect}
                         />

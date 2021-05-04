@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Global } from '../contexts/Global'
 import { useState, useEffect, useContext } from 'react'
-import { Redirect, useParams } from 'react-router-dom'
+import { Redirect, useParams, useHistory } from 'react-router-dom'
 
 function ArticleForm(props) {
     const { userState } = useContext(Global)
@@ -9,6 +9,8 @@ function ArticleForm(props) {
     const { articleId } = useParams()
     const [inputs, setInputs] = useState({})
     const [redirect, setRedirect] = useState('')
+    const [deleted, setDeleted] = useState(false)
+    const history = useHistory()
 
     const handleResponse = (response) => {
         const status = response.data.status
@@ -66,6 +68,7 @@ function ArticleForm(props) {
                     .catch(error => {
                         console.error(error);
                     })
+                break;
             default:
                 break;
         }
@@ -82,7 +85,8 @@ function ArticleForm(props) {
                 .then(res => {
                     console.log('delete article res', res);
                     // handleResponse(res)
-                    setRedirect('')
+                    // setRedirect('')
+                    history.push('/articles')
                 })
                 .catch(error => {
                     console.error(error);
@@ -91,13 +95,14 @@ function ArticleForm(props) {
     }
 
     useEffect(() => {
+        let mounted = true
         if (props.type === "article edit") {
             // fetch article using params
             console.log('fetching article...');
             axios.get(`${process.env.REACT_APP_BACKEND}/articles/${articleId}`)
                 .then(res => {
                     console.log('fetchArticle res', res);
-                    if (res.data.status === 200) {
+                    if (res.data.status === 200 && mounted) {
                         setInputs({
                             title: res.data.article.title,
                             content: res.data.article.content
@@ -108,13 +113,16 @@ function ArticleForm(props) {
                     console.error(error);
                 })
         }
-    }, [])
+
+        return () => {
+            mounted = false
+        }
+    }, [props.type, articleId])
 
     return (
         <form className="articleForm" onSubmit={handleSubmit}>
 
-            {/* {redirect === 'all' && <Redirect to="/articles" />} */}
-            {!redirect && <Redirect to={`/articles/${redirect}`} />}
+            {redirect && <Redirect to={`/articles/${redirect}`} />}
 
             <h2>
                 {props.type}

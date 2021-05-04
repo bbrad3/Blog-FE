@@ -96,7 +96,7 @@ function UserForm(props) {
                 <>
                     <label htmlFor="name">Name:</label>
                     <input name="name" type="text"
-                        value={inputs.name}
+                        value={inputs.name || ''}
                         onChange={(e) => {
                             setInputs({...inputs, name: e.target.value})
                         }}
@@ -104,7 +104,7 @@ function UserForm(props) {
 
                     <label htmlFor="alias">Alias:</label>
                     <input name="alias" type="text"
-                        value={inputs.alias}
+                        value={inputs.alias || ''}
                         onChange={(e) => {
                             setInputs({...inputs, alias: e.target.value})
                         }}
@@ -115,7 +115,7 @@ function UserForm(props) {
 
             <label htmlFor="email">Email:</label>
             <input name="email" type="email"
-                value={inputs.email}
+                value={inputs.email || ''}
                 onChange={(e) => {
                     setInputs({...inputs, email: e.target.value})
                 }}
@@ -123,7 +123,7 @@ function UserForm(props) {
 
             <label htmlFor="password">Password:</label>
             <input name="password" type="password"
-                value={inputs.password}
+                value={inputs.password || ''}
                 onChange={(e) => {
                     setInputs({...inputs, password: e.target.value})
                 }}

@@ -2,7 +2,6 @@ import '../styles/ShowForm.css'
 import { useHistory } from 'react-router-dom'
 import UserForm from '../components/UserForm'
 import ArticleForm from '../components/ArticleForm'
-// import CommentForm from '../comoponents/CommentForm'
 
 const userTypes = ["signup", "login", "user edit"]
 const articleTypes = ["article new", "article edit"]

@@ -5,21 +5,11 @@ import { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 function SideBar() {
-    const { userState } = useContext(Global)
+    const { userState, topState, fetchTop } = useContext(Global)
     const [user, setUser] = userState
-    const [topUsers, setTopUsers] = useState([])
+    const [topUsers, setTopUsers] = topState
 
-    const fetchUsers = () => {
-        axios.get(`${process.env.REACT_APP_BACKEND}/users/top`)
-            .then(res => {
-                console.log('top users res', res)
-                setTopUsers(res.data.users)
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }
-    useEffect(fetchUsers ,[])
+    useEffect(fetchTop ,[])
 
     return (
         <div className="sideBar">

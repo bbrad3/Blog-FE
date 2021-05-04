@@ -28,9 +28,13 @@ function ShowArticle() {
                 console.error(error);
             })
     }
-    useEffect(fetchArticle, [])
+    useEffect(fetchArticle, [articleId])
 
-    const checkOwner = () => {
+    // const checkOwner = () => {
+        
+    // }
+    useEffect(() => {
+        let mounted = true
         axios.post(`${process.env.REACT_APP_BACKEND}/users/authorize`, {
             articleId: articleId
         }, {
@@ -40,13 +44,17 @@ function ShowArticle() {
         })
             .then(res => {
                 console.log('checkOwner res', res)
-                setIsOwner(res.data.isOwner)
+                if (mounted) {
+                    setIsOwner(res.data.isOwner)
+                }
             })
             .catch(error => {
                 console.error(error);
             })
-    }
-    useEffect(checkOwner, [])
+        return () => {
+            mounted = false
+        }
+    }, [articleId, user.id])
 
     return (
         <div className="view showArticle">
@@ -66,7 +74,7 @@ function ShowArticle() {
                 }
                 <ArticleCard 
                     article={article}
-                    style="show"
+                    type="show"
                 />
                 <CommentCard article={article} />
             </div>
