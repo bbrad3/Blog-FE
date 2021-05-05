@@ -54,7 +54,7 @@ This is a personal blog for users to create content to share with other users. U
     - CommentCard
 
 ## MVP
-- [] User Auth
+- [x] User Auth
     - [x] Login
     - [x] Signup
     - [x] Logout
@@ -65,10 +65,9 @@ This is a personal blog for users to create content to share with other users. U
     - [x] Encrypted id
         - [x] saved to localStorage
         - [x] saved to global state
-    - [] Hashed passwords
-- [] Articles
+    - [x] Hashed passwords
+- [x] Articles
     - [x] Get all
-        - [] Get articles filtered by tags
     - [x] Get one
     - [x] Create article 
         - [x] (User only)
@@ -82,16 +81,17 @@ This is a personal blog for users to create content to share with other users. U
         - [x] Comment belongs to one user and one article
     - [x] Remove comment on article 
         -[] (Article or Comment Owner only)
+
+## STRETCH
+- [] Articles can be saved
+- [] Articles can be up-voted
 - [] Tags
     - [] Seed default tags
     - [] Add to articles
     - [] Remove from articles
     - [] Add to comments
     - [] Remove from comments
-
-## STRETCH
-- [] Articles can be saved
-- [] Articles can be up-voted
+- [] Get articles filtered by tags
 - [] Add user img column
 - [] Add article img column
 - [] Animations using react-spring
